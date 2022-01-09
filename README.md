@@ -6,6 +6,7 @@ The majority of people are likely here because they want to easily access the Sc
 /<user>/pfp (returns the profile picture of a user)
 /<user>/favorite (returns the most recent project a user favorited)
 /<project>/thumbnail (returns the thumbnail of a project)
+/<user>/follower-count/ (returns the follower count of a user)
 ```
 
 ## How to Access
