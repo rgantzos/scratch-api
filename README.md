@@ -22,3 +22,6 @@ It works in node.js too, I just don't know much about node.js yet xD
 
 # How it Works
 The server that we use to display short pieces of the Scratch API is built on python. You can view the main.py file in this repository, it has all the code there. We would like credit if you do choose to use it, though.
+
+# More
+For more documentation, you can always go to the [Official YouTube Channel](https://www.youtube.com/channel/UC-kD7mi3Dpht3lW0bVytkMw/)!
