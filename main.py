@@ -43,5 +43,33 @@ def pfp(user):
 
     return jsonify({"pfp":logo})
 
+@app.route('/<user>/follower-count/')
+def fcount(user):
+    print(user)
+    userdata = requests.get(f"https://scratchdb.lefty.one/v2/user/info/{user}").text
+    partitioned_string = userdata.partition('","followers":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"followers count":title})
+
+# The user message count code is having some trouble, and is still under construction. It does not work yet, and at the moment it will only return an error message that we have created.
+
+@app.route('/<user>/messages/')
+def mcount(user):
+    print(user)
+    userdata = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count").text
+    partitioned_string = userdata.partition('{"count":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition('}')
+    title = partitioned_string[0]
+    print(title)
+
+    return jsonify({"error":"this api is not yet ready for release"})
+
+
 
 app.run(host='0.0.0.0', port=8000)
