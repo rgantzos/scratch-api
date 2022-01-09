@@ -1,0 +1,6 @@
+{
+  "user-favorite": "Returns the most recent project favorited by the user.",
+  "project-thumbnail": "Returns the image address for the given project's thumbnail.",
+  "user-pfp": "Returns the profile picture for the user.",
+  "follower-count": "Returns the follower count for the user."
+}
