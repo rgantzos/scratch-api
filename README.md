@@ -2,9 +2,10 @@
 The majority of people are likely here because they want to easily access the Scratch API!
 
 ## Commands
+```
 /<user>/pfp (returns the profile picture of a user)
 /<user>/favorite (returns the most recent project a user favorited)
-/<project>/thumbnail (returns the thumbnail of a project)
+/<project>/thumbnail (returns the thumbnail of a project)```
 
 ## How to Access
 
