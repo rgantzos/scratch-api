@@ -8,6 +8,9 @@ The majority of people are likely here because they want to easily access the Sc
 /<project>/thumbnail (returns the thumbnail of a project)
 /<user>/follower-count/ (returns the follower count of a user)
 /<user>/project/ (returns the project ID of a user's most recent project)
+/<user>/scratchteam/ (returns whether or not a user is on the Scratch Team)
+/<user>/id/ (returns the ID of a user)
+/<user>/join-date/ (returns the join date of a user)
 ```
 
 ## How to Access
