@@ -7,6 +7,7 @@ The majority of people are likely here because they want to easily access the Sc
 /<user>/favorite (returns the most recent project a user favorited)
 /<project>/thumbnail (returns the thumbnail of a project)
 /<user>/follower-count/ (returns the follower count of a user)
+/<user>/project/ (returns the project ID of a user's most recent project)
 ```
 
 ## How to Access
