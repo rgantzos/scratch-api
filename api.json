@@ -3,5 +3,8 @@
   "project-thumbnail": "Returns the image address for the given project's thumbnail.",
   "user-pfp": "Returns the profile picture for the user.",
   "follower-count": "Returns the follower count for the user.",
-  "user-project": "Returns the project ID for the user's most recent project."
+  "user-project": "Returns the project ID for the user's most recent project.",
+  "user-scratchteam": "Returns whether or not a user is on the Scratch Team.",
+  "user-id": "Returns the ID of a user.",
+  "user-joined": "Returns the join date of a user."
 }
