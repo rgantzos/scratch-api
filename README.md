@@ -17,7 +17,7 @@ It's quite simple, really.
 For python users:
 ```
 import requests
-requests.get("api.scratchstatus.org/rgantzos/pfp/")
+requests.get("api.scratchstatus.org/rgantzos/pfp/").text
 ```
 
 It works in node.js too, I just don't know much about node.js yet xD
