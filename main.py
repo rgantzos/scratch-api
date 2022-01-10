@@ -67,6 +67,46 @@ def project(user):
 
     return jsonify({"most recent project":title})
 
+@app.route('/<user>/scratchteam/')
+def checkscratch(user):
+    print(user)
+    userdata = requests.get(f"https://api.scratch.mit.edu/users/{user}/").text
+    partitioned_string = userdata.partition('"scratchteam":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+    if title == 'false':
+        title = False
+    else:
+        title = True
+    
+    return jsonify({"scratchteam check":title})
+
+@app.route('/<user>/id/')
+def getid(user):
+    print(user)
+    userdata = requests.get(f"https://api.scratch.mit.edu/users/{user}/").text
+    partitioned_string = userdata.partition('"id":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"id":title})
+
+@app.route('/<user>/join-date/')
+def getjoin(user):
+    print(user)
+    userdata = requests.get(f"https://api.scratch.mit.edu/users/{user}/").text
+    partitioned_string = userdata.partition('"joined":"')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition('"')
+    title = partitioned_string[0]
+
+    return jsonify({"join date":title})
+
 
 # The user message count code is having some trouble, and is still under construction. It does not work yet, and at the moment it will only return an error message that we have created.
 
