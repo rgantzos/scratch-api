@@ -6,5 +6,9 @@
   "user-project": "Returns the project ID for the user's most recent project.",
   "user-scratchteam": "Returns whether or not a user is on the Scratch Team.",
   "user-id": "Returns the ID of a user.",
-  "user-joined": "Returns the join date of a user."
+  "user-joined": "Returns the join date of a user.",
+  "project-views": "Returns the view count of a project.",
+  "project-loves": "Returns the love count of a project.",
+  "project-favorites": "Returns the favorite count of a project.",
+  "project-remixes": "Returns the remix count of a project."
 }
