@@ -10,5 +10,9 @@
   "project-views": "Returns the view count of a project.",
   "project-loves": "Returns the love count of a project.",
   "project-favorites": "Returns the favorite count of a project.",
-  "project-remixes": "Returns the remix count of a project."
+  "project-remixes": "Returns the remix count of a project.",
+  "studio-followers": "Returns the follower count of a studio.",
+  "studio-hostid": "Returns the user ID of a studio host.",
+  "studio-managers": "Returns the manager count of a studio.",
+  "studio-comments": "Returns the comment count of a studio."
 }
