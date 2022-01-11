@@ -11,6 +11,10 @@ The majority of people are likely here because they want to easily access the Sc
 /<user>/scratchteam/ (returns whether or not a user is on the Scratch Team)
 /<user>/id/ (returns the ID of a user)
 /<user>/join-date/ (returns the join date of a user)
+/<project>/views/ (returns the view count of a project)
+/<project>/loves/ (returns the love count of a project)
+/<project>/favorites/ (returns the favorites count of a project)
+/<project>/remixes/ (returns the remix count of a project)
 ```
 
 ## How to Access
