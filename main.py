@@ -7,6 +7,7 @@ app = Flask('app')
 def hello_world():
     return jsonify({"error":"no api selected"})
 
+# v1.0
 
 @app.route('/<user>/favorite/')
 def check(user):
@@ -19,7 +20,7 @@ def check(user):
     title = partitioned_string[0]
     print(title)
     
-    return jsonify({"project id":title})
+    return jsonify({"project id":int(title)})
 
 @app.route('/<project>/thumbnail/')
 def thumbnail(project):
@@ -43,6 +44,8 @@ def pfp(user):
 
     return jsonify({"pfp":logo})
 
+#v1.1
+
 @app.route('/<user>/follower-count/')
 def fcount(user):
     print(user)
@@ -53,7 +56,9 @@ def fcount(user):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"followers count":title})
+    return jsonify({"followers count":int(title)})
+
+# v1.2
 
 @app.route('/<user>/project/')
 def project(user):
@@ -65,7 +70,9 @@ def project(user):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"most recent project":title})
+    return jsonify({"most recent project":int(title)})
+
+# v1.3
 
 @app.route('/<user>/scratchteam/')
 def checkscratch(user):
@@ -93,7 +100,7 @@ def getid(user):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"id":title})
+    return jsonify({"id":int(title)})
 
 @app.route('/<user>/join-date/')
 def getjoin(user):
@@ -119,6 +126,8 @@ def getcountry(user):
 
     return jsonify({"country":title})
 
+# v1.4
+
 @app.route('/<project>/views/')
 def getviews(project):
     print(project)
@@ -130,7 +139,7 @@ def getviews(project):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"views":title})
+    return jsonify({"views":int(title)})
 
 @app.route('/<project>/loves/')
 def getloves(project):
@@ -143,7 +152,7 @@ def getloves(project):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"loves":title})
+    return jsonify({"loves":int(title)})
 
 @app.route('/<project>/favorites/')
 def getfavorites(project):
@@ -156,7 +165,7 @@ def getfavorites(project):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"favorites":title})
+    return jsonify({"favorites":int(title)})
 
 @app.route('/<project>/remixes/')
 def getremixes(project):
@@ -169,7 +178,61 @@ def getremixes(project):
     partitioned_string = before_first_period.partition(',')
     title = partitioned_string[0]
 
-    return jsonify({"remixes":title})
+    return jsonify({"remixes":int(title)})
+
+# v1.5
+
+@app.route('/<studio>/studio/followers/')
+def getstudiofollowers(studio):
+    print(studio)
+    userdata = requests.get(f"https://api.scratch.mit.edu/studios/{studio}/").text
+    print(userdata)
+    partitioned_string = userdata.partition(',"followers":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"studio followers":int(title)})
+
+@app.route('/<studio>/studio/host-id/')
+def getstudiohost(studio):
+    print(studio)
+    userdata = requests.get(f"https://api.scratch.mit.edu/studios/{studio}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('","host":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"studio host id":int(title)})
+
+@app.route('/<studio>/studio/managers/')
+def getstudiomanagers(studio):
+    print(studio)
+    userdata = requests.get(f"https://api.scratch.mit.edu/studios/{studio}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('"managers":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"studio managers":int(title)})
+
+@app.route('/<studio>/studio/comments/')
+def getstudiocomments(studio):
+    print(studio)
+    userdata = requests.get(f"https://api.scratch.mit.edu/studios/{studio}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('"},"stats":{"comments":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"studio comments":int(title)})
 
 
 
@@ -179,6 +242,7 @@ def getremixes(project):
 def mcount(user):
     print(user)
     userdata = requests.get(f"https://api.scratch.mit.edu/users/{user}/messages/count").text
+    print(userdata)
     partitioned_string = userdata.partition('{"count":')
     before_first_period = partitioned_string[2]
     print(before_first_period)
@@ -186,7 +250,7 @@ def mcount(user):
     title = partitioned_string[0]
     print(title)
 
-    return jsonify({"error":"this api is not yet ready for release"})
+    return jsonify({"error":"This API is not yet ready."})
 
 
 
