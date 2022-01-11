@@ -107,6 +107,71 @@ def getjoin(user):
 
     return jsonify({"join date":title})
 
+@app.route('/<user>/country/')
+def getcountry(user):
+    print(user)
+    userdata = requests.get(f"https://api.scratch.mit.edu/users/{user}/").text
+    partitioned_string = userdata.partition('"country":"')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition('"')
+    title = partitioned_string[0]
+
+    return jsonify({"country":title})
+
+@app.route('/<project>/views/')
+def getviews(project):
+    print(project)
+    userdata = requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('{"views":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"views":title})
+
+@app.route('/<project>/loves/')
+def getloves(project):
+    print(project)
+    userdata = requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('"loves":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"loves":title})
+
+@app.route('/<project>/favorites/')
+def getfavorites(project):
+    print(project)
+    userdata = requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('"favorites":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"favorites":title})
+
+@app.route('/<project>/remixes/')
+def getremixes(project):
+    print(project)
+    userdata = requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text
+    print(userdata)
+    partitioned_string = userdata.partition('"remixes":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    return jsonify({"remixes":title})
+
+
 
 # The user message count code is having some trouble, and is still under construction. It does not work yet, and at the moment it will only return an error message that we have created.
 
