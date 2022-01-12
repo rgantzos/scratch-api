@@ -175,7 +175,7 @@ def getremixes(project):
     partitioned_string = userdata.partition('"remixes":')
     before_first_period = partitioned_string[2]
     print(before_first_period)
-    partitioned_string = before_first_period.partition(',')
+    partitioned_string = before_first_period.partition('}')
     title = partitioned_string[0]
 
     return jsonify({"remixes":int(title)})
@@ -234,6 +234,17 @@ def getstudiocomments(studio):
 
     return jsonify({"studio comments":int(title)})
 
+@app.route('/<user>/love/')
+def checklove(user):
+    print(user)
+    project = requests.get(f"https://api.scratch.mit.edu/users/{user}/loves/").text
+    partitioned_string = project.partition('[{"id":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',"title":')
+    title = partitioned_string[0]
+    print(title)
+
 
 
 # The user message count code is having some trouble, and is still under construction. It does not work yet, and at the moment it will only return an error message that we have created.
@@ -246,11 +257,11 @@ def mcount(user):
     partitioned_string = userdata.partition('{"count":')
     before_first_period = partitioned_string[2]
     print(before_first_period)
-    partitioned_string = before_first_period.partition('}')
+    partitioned_string = before_first_period.partition("}")
     title = partitioned_string[0]
     print(title)
 
-    return jsonify({"error":"This API is not yet ready."})
+    return jsonify({"error":"API not yet released."})
 
 
 
