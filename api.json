@@ -1,3 +1,5 @@
+
+  
 {
   "user-favorite": "Returns the most recent project favorited by the user.",
   "project-thumbnail": "Returns the image address for the given project's thumbnail.",
@@ -14,5 +16,10 @@
   "studio-followers": "Returns the follower count of a studio.",
   "studio-hostid": "Returns the user ID of a studio host.",
   "studio-managers": "Returns the manager count of a studio.",
-  "studio-comments": "Returns the comment count of a studio."
+  "studio-comments": "Returns the comment count of a studio.",
+  "project-title": "Returns the title of a project.",
+  "project-remix": "Checks if a project is a remix.",
+  "project-modified": "Checks when a project was last modified.",
+  "project-shared": "Checks when a project was last shared.",
+  "project-created": "Checks when a project was created."
 }
