@@ -234,16 +234,75 @@ def getstudiocomments(studio):
 
     return jsonify({"studio comments":int(title)})
 
-@app.route('/<user>/love/')
-def checklove(user):
-    print(user)
-    project = requests.get(f"https://api.scratch.mit.edu/users/{user}/loves/").text
-    partitioned_string = project.partition('[{"id":')
+# v1.6
+
+@app.route('/<project>/title/')
+def getprojecttitle(project):
+    print(project)
+    userdata = str(requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text)
+    print(userdata)
+    partitioned_string = userdata.partition(',"title":"')
     before_first_period = partitioned_string[2]
     print(before_first_period)
-    partitioned_string = before_first_period.partition(',"title":')
+    partitioned_string = before_first_period.partition('","description":"')
     title = partitioned_string[0]
-    print(title)
+
+    return jsonify({"project title (emojis replaced)":str(title)})
+
+@app.route('/<project>/remix-check/')
+def checkifprojectisremix(project):
+    print(project)
+    userdata = str(requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text)
+    print(userdata)
+    partitioned_string = userdata.partition(',"remix":{"parent":')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition(',')
+    title = partitioned_string[0]
+
+    if title == 'null':
+        title = False
+
+    return jsonify({"project remix check":title})
+
+@app.route('/<project>/modified/')
+def getprojectmodification(project):
+    print(project)
+    userdata = str(requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text)
+    print(userdata)
+    partitioned_string = userdata.partition('","modified":"')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition('","shared":"')
+    title = partitioned_string[0]
+
+    return jsonify({"project modification date":title})
+
+@app.route('/<project>/shared/')
+def getprojectsharedate(project):
+    print(project)
+    userdata = str(requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text)
+    print(userdata)
+    partitioned_string = userdata.partition('","shared":"')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition('"},"stats":')
+    title = partitioned_string[0]
+
+    return jsonify({"project shared date":title})
+
+@app.route('/<project>/created/')
+def getprojectcreatedate(project):
+    print(project)
+    userdata = str(requests.get(f"https://api.scratch.mit.edu/projects/{project}/").text)
+    print(userdata)
+    partitioned_string = userdata.partition('"},"history":{"created":"')
+    before_first_period = partitioned_string[2]
+    print(before_first_period)
+    partitioned_string = before_first_period.partition('","modified":"')
+    title = partitioned_string[0]
+
+    return jsonify({"project created date":title})
 
 
 
