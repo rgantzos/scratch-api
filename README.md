@@ -19,6 +19,11 @@ The majority of people are likely here because they want to easily access the Sc
 /<project>/studio/host-id/ (returns the host ID of a studio)
 /<project>/studio/managers/ (returns the manager count of a studio)
 /<project>/studio/comments/ (returns the comment count of a studio)
+/<project>/title/ (returns the title of a project)
+/<project>/remix-check/ (returns whether or not a project is a remix)
+/<project>/modified/ (returns when a project was last modified)
+/<project>/shared/ (returns when a project was last shared)
+/<project>/created/ (returns when a project was created)
 ```
 
 ## How to Access
